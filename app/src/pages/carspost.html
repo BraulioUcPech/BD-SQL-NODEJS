@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Post</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link rel="icon" type="image/svg+xml" href="/app/src/public/e-corp.jpg" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="/public/styles/output.css" type="text/css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <body class= text-gray-800">
+    <nav
+      class="bg-white bg-opacity-50 fixed w-full z-10 top-0 border-gray-200 dark:bg-gray-900"
+    >
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="/" class="flex items-center pb-4 border-b border-b-gray-800">
+          <h2
+            class="bg-[#000000] text-white px-2 rounded-md font-bold text-2xl"
+          >
+            E
+            <span class="text-white px-1 rounded-md">Corp</span>
+          </h2>
+        </a>
+        <h1 class="text-4xl font-bold text-center mb-8 text-black">
+          Vehiculos
+        </h1>
+
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="/"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="/api/users"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >API Users</a
+              >
+            </li>
+            <li>
+              <a
+                href="/cars"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Cars</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Others</a
+              >
+            </li>
+            <li>
+              <a
+                href="/apis"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >APIs</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-center mb-8 text-black"></h1>
+
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto mt-10 p-5 shadow-2xl">
+        <h2 class="text-2xl font-semibold mb-5">Registro de Vehículo</h2>
+        <form
+          class="grid grid-cols-1 md:grid-cols-2 gap-4"
+          method="POST"
+          action="/carspost"
+          enctype="multipart/form-data"
+        >
+          <div>
+            <label for="Modelo" class="block text-sm font-medium text-gray-700"
+              >Modelo</label
+            >
+            <input
+              type="text"
+              id="Modelo"
+              name="Modelo"
+              placeholder="Ej: Model S"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="Ano" class="block text-sm font-medium text-gray-700"
+              >Año</label
+            >
+            <input
+              type="number"
+              id="Ano"
+              name="Ano"
+              placeholder="Ej: 2024"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="Tipo" class="block text-sm font-medium text-gray-700"
+              >Tipo</label
+            >
+            <input
+              type="text"
+              id="Tipo"
+              name="Tipo"
+              placeholder="Ej: Sedán, SUV, Coupó, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="Autonomia"
+              class="block text-sm font-medium text-gray-700"
+              >Autonomía (km)</label
+            >
+            <input
+              type="number"
+              id="Autonomia"
+              name="Autonomia"
+              placeholder="Ej: 600 - Kilímetros que puede recorrer con una carga completa - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="TiempoDeCarga"
+              class="block text-sm font-medium text-gray-700"
+              >Tiempo de Carga (horas)</label
+            >
+            <input
+              type="text"
+              id="TiempoDeCarga"
+              name="TiempoDeCarga"
+              placeholder="Ej: 8 - Horas para cargar completamente - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="Potencia"
+              class="block text-sm font-medium text-gray-700"
+              >Potencia (kW)</label
+            >
+            <input
+              type="text"
+              id="Potencia"
+              name="Potencia"
+              placeholder="Ej: 500 - kW o caballos de fuerza - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="Traccion"
+              class="block text-sm font-medium text-gray-700"
+              >Tracción</label
+            >
+            <input
+              type="text"
+              id="Traccion"
+              name="Traccion"
+              placeholder="Ej: Trasera, Delantera, 4x4, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="CapacidadDeBateria"
+              class="block text-sm font-medium text-gray-700"
+              >Capacidad de Batería (kWh)</label
+            >
+            <input
+              type="text"
+              id="CapacidadDeBateria"
+              name="CapacidadDeBateria"
+              placeholder="Ej: 100 - kWh - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="NumeroDeAsientos"
+              class="block text-sm font-medium text-gray-700"
+              >Número de Asientos</label
+            >
+            <input
+              type="number"
+              id="NumeroDeAsientos"
+              name="NumeroDeAsientos"
+              placeholder="Ej: 5 - Número de asientos disponibles - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="Precio" class="block text-sm font-medium text-gray-700"
+              >Precio ($)</label
+            >
+            <input
+              type="text"
+              id="Precio"
+              name="Precio"
+              placeholder="Ej: 100000 - Precio en dólares - "
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="ColorExterior"
+              class="block text-sm font-medium text-gray-700"
+              >Color Exterior</label
+            >
+            <input
+              type="text"
+              id="ColorExterior"
+              name="ColorExterior"
+              placeholder="Ej: Rojo, Az, Blanco, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="ColorInterior"
+              class="block text-sm font-medium text-gray-700"
+              >Color Interior</label
+            >
+            <input
+              type="text"
+              id="ColorInterior"
+              name="ColorInterior"
+              placeholder="Ej: Rojo, Az, Blanco, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label
+              for="OpcionesDeRuedas"
+              class="block text-sm font-medium text-gray-700"
+              >Opciones de Ruedas</label
+            >
+            <input
+              type="text"
+              id="OpcionesDeRuedas"
+              name="OpcionesDeRuedas"
+              placeholder="Ej: 18 Plata, 19 Deportivas, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div class="md:col-span-2">
+            <label
+              for="PaqueteDeAutopiloto"
+              class="block text-sm font-medium text-gray-700"
+              >Paquete de Autopiloto</label
+            >
+            <select
+              id="PaqueteDeAutopiloto"
+              name="PaqueteDeAutopiloto"
+              aria-placeholder="Ej: Autopiloto Básico, Autopiloto Completo, etc"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            >
+              <option value="1">Sí</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-2">
+            <div class="flex justify-between">
+              <div class="flex items-center">
+                <input
+                  id="TechoSolar"
+                  name="TechoSolar"
+                  type="checkbox"
+                  class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                />
+                <label for="TechoSolar" class="ml-2 block text-sm text-gray-900"
+                  >Techo Solar</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="ConexionInternet"
+                  name="ConexionInternet"
+                  type="checkbox"
+                  class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                />
+                <label
+                  for="ConexionInternet"
+                  class="ml-2 block text-sm text-gray-900"
+                  >Conexión Internet</label
+                >
+              </div>
+              <div class="flex items-center">
+                <input
+                  id="SistemaDeSonidoPremium"
+                  name="SistemaDeSonidoPremium"
+                  type="checkbox"
+                  class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                />
+                <label
+                  for="SistemaDeSonidoPremium"
+                  class="ml-2 block text-sm text-gray-900"
+                  >Sistema de Sonido Premium</label
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="py-12 px-4 sm:px-6 lg:px-1 flex justify-center items-center"
+          >
+            <div class="max-w-full mx-auto">
+              <div class="text-center">
+                <h2
+                  id="Imagen-name"
+                  class="text-3xl font-semibold text-gray-900"
+                >
+                  Sube la imagen de tu vehículo
+                </h2>
+              </div>
+              <div>
+                <label for="imagen" class="sr-only">Imagen del Vehículo</label>
+                <div
+                  class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                  id="drop-zone"
+                >
+                  <div class="space-y-1 text-center">
+                    <svg
+                      class="mx-auto h-12 w-12 text-gray-400"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 48 48"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 14v20c0 2.209 1.791 4 4 4h24c2.209 0 4-1.791 4-4V14m-16 6v10m8-10v10m-8-10h16m-4-18v8m-8-8v8m0-8l-4-4m8 0l-4 4"
+                      ></path>
+                    </svg>
+                    <div class="flex text-sm text-gray-600">
+                      <label
+                        for="Imagen"
+                        class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                      >
+                        <span>Selecciona un archivo</span>
+                        <input
+                          id="Imagen"
+                          name="Imagen"
+                          type="file"
+                          class="sr-only"
+                        />
+                      </label>
+                    </div>
+                    <p class="text-xs text-gray-500">
+                      PNG, JPG, GIF hasta 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <label
+              for="ModoDeConduccion"
+              class="block text-sm font-medium text-gray-700"
+              >Modo de Conducción</label
+            >
+            <select
+              id="ModoDeConduccion"
+              name="ModoDeConduccion"
+              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            >
+              <option value="Estándar">Estándar</option>
+              <option value="Eco">Eco</option>
+              <option value="Deportivo">Deportivo</option>
+            </select>
+          </div>
+          <div class="col-span-2 flex justify-center">
+            <div class="md:col-span-2 flex justify-between">
+              <button
+                value="Enviar"
+                type="submit"
+                onclick="showModal(event, 'guardar')"
+                class="bg-white text-black font-semibold py-2 px-4 border border-black rounded transition duration-300 ease-in-out hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 mr-85 mb-2"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script>
+      var fileUpload = document.getElementById("Imagen");
+      var fileName = document.getElementById("Imagen-name");
+
+      fileUpload.addEventListener("change", function (event) {
+        var uploadedFile = event.target.files[0];
+        if (uploadedFile) {
+          fileName.textContent = uploadedFile.name;
+        } else {
+          fileName.textContent = "Selecciona un archivo";
+        }
+      });
+      var dropZone = document.getElementById("drop-zone");
+      var fileUpload = document.getElementById("Imagen");
+      var fileName = document.getElementById("Imagen-name");
+
+      dropZone.addEventListener("dragover", function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "copy";
+      });
+
+      dropZone.addEventListener("drop", function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var files = event.dataTransfer.files; // Los archivos arrastrados y soltados
+
+        if (files.length > 0) {
+          fileUpload.files = files;
+          fileName.textContent = files[0].name;
+        }
+      });
+    </script>
+    <h1 class="text-4xl font-bold text-center mb-8 text-black"></h1>
+
+    <footer class="bg-gray-100">
+      <div
+        class="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24"
+      >
+        <div class="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
+          <a
+            class="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition hover:bg-teal-500 sm:p-3 lg:p-4"
+            href="#MainContent"
+          >
+            <span class="sr-only">Back to top</span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div class="lg:flex lg:items-end lg:justify-between">
+          <div>
+            <div class="flex justify-center text-teal-600 lg:justify-start">
+              E-Corp
+            </div>
+
+            <p
+              class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left"
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+              consequuntur amet culpa cum itaque neque.
+            </p>
+          </div>
+
+          <ul
+            class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+          >
+            <li>
+              <a
+                class="text-gray-700 transition hover:text-gray-700/75"
+                href="#"
+              >
+                About
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:text-gray-700/75"
+                href="#"
+              >
+                Services
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:text-gray-700/75"
+                href="#"
+              >
+                Projects
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="text-gray-700 transition hover:text-gray-700/75"
+                href="#"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="mt-12 text-center text-sm text-gray-500 lg:text-right">
+          Copyright &copy; 2022. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <div
+      class="fixed z-10 inset-0 overflow-y-auto"
+      id="modal"
+      style="display: none"
+    >
+      <div
+        class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span
+          class="hidden sm:inline-block sm:align-middle sm:h-screen"
+          aria-hidden="true"
+          >&#8203;</span
+        >
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <div class="sm:flex sm:items-start">
+              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <h3
+                  class="text-lg leading-6 font-medium text-gray-900"
+                  id="modal-title"
+                >
+                  Confirmación
+                </h3>
+                <div class="mt-2">
+                  <p class="text-sm text-gray-500" id="modal-content"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button
+              type="button"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+              id="confirm-button"
+            >
+              Confirmar
+            </button>
+            <button
+              type="button"
+              class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+              id="cancel-button"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var form; // Variable para guardar el formulario
+
+      function showModal(event, action) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del botón de "Guardar"
+        form = event.target.form; // Guardar el formulario
+
+        // Obtén la ventana modal y el contenido de la modal
+        var modal = document.getElementById("modal");
+        var modalContent = document.getElementById("modal-content");
+
+        // Configura el contenido de la modal en función de la acción
+        if (action === "guardar") {
+          modalContent.textContent = "¿Estás seguro de que quieres guardar?";
+        } else {
+          modalContent.textContent = "Acción no reconocida.";
+        }
+
+        // Muestra la ventana modal
+        modal.style.display = "block";
+      }
+
+      // Obtén el botón de confirmación
+      var confirmButton = document.getElementById("confirm-button");
+
+      // Cuando el usuario haga clic en el botón de confirmación, envía el formulario
+      confirmButton.onclick = function () {
+        form.submit();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "bd-sql-nodejs",
+  "version": "1.0.0",
+  "description": "Conexion a base de datos SQL Server con Node.js",
+  "main": "app/conexion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/conexion.js",
+    "dev": "nodemon app/conexion.js",
+    "build": "./tailwindcss -i main.css -o output.css --watch"
+  },
+  "keywords": [],
+  "author": "BraulioUP",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "buffer": "^6.0.3",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "msnodesqlv8": "^4.1.2",
+    "mssql": "^10.0.2",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "sequelize": "^6.37.1",
+    "sharp": "^0.33.2",
+    "tedious": "^17.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "nodemon": "^2.0.15",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1"
+  }
+}
